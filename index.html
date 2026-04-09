@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Portfolio - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background-color: #442858;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            max-width: 90%;
+            margin: auto;
+            align-items: center;
+        }
+
+        .logo a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+        }
+
+        nav a.active { color: #f4bebe; }
+
+        #click { display: none; }
+        .menu { display: none; cursor: pointer; color: #f4bebe; font-size: 1.5rem; }
+
+        section {
+            padding: 2rem 5%;
+        }
+
+        .main {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 3rem;
+            gap: 2rem;
+        }
+
+        .detail {
+            max-width: 500px;
+        }
+
+        .detail h1 {
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .detail h1 span { color: #f4bebe; }
+
+        .detail p {
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .social { display: flex; gap: 1rem; }
+        .social a {
+            color: #f4bebe;
+            border: 2px solid #f4bebe;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social a:hover { background: #f4bebe; color: #442858; }
+
+        .images img {
+            width: 350px;
+            border-radius: 30px;
+            box-shadow: 20px 20px 0px #f4bebe;
+        }
+
+        @media (max-width: 768px) {
+            .menu { display: block; }
+            
+            nav {
+                position: absolute;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: #442858;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                transition: 0.4s;
+                z-index: 100;
+            }
+
+            #click:checked ~ nav { left: 0; }
+
+            .main {
+                flex-direction: column;
+                text-align: center;
+                margin-top: 1rem;
+            }
+
+            .detail h1 {
+                font-size: 1.8rem;
+                white-space: normal;
+                word-wrap: break-word;
+            }
+
+            .detail p {
+                font-size: 0.9rem;
+            }
+
+            .social { justify-content: center; }
+
+            .images img {
+                width: 200px; 
+                box-shadow: 10px 10px 0px #f4bebe;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo"><a href="index.html">Student Portfolio</a></div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu"><i class="bi bi-list"></i></label>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="activities.html">Activities</a>
+            <a href="quizzes.html">Quizzes</a>
+            <a href="exams.html">Exams</a>
+        </nav>
+    </header>
+
+    <section>
+        <div class="main">
+            <div class="images">
+                <img src="pincaropicc.jpg" alt="Profile">
+            </div>
+
+            <div class="detail">
+                <h1>About Me <br> <span>Lois Verlene Pincaro</span></h1>
+                <p>
+                    BS Computer Science Student (BS-CS1B) <br>
+                    Student ID: 251100526 <br><br>
+                    I like books, games, and writing. My current favorite is Fire Emblem: Three Houses.
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
