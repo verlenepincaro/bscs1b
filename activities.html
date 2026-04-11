@@ -8,95 +8,40 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>Activities - Portfolio</title>
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: 'Poppins', sans-serif; min-height: 100vh; background-color: #442858; color: #fff; }
+        
+        header { padding: 1.7rem 1rem; display: flex; justify-content: space-between; max-width: 80%; margin: auto; align-items: center; background-color: transparent; }
+        
+        .logo a { color: #fff; text-decoration: none; font-size: 1.3rem; font-weight: 800; }
+        
+        nav a { color: #fff; text-decoration: none; font-size: .97rem; font-weight: 600; padding: 0.4rem 1rem; }
+        
+        nav a.active, nav a:hover { color: #f4bebe; transition: all .3s ease-in-out; }
+        section { margin: 2rem 8.5rem; }
+
+        .main { display: flex; flex-direction: column; margin: 5rem auto; }
+
+        .main h1 { font-size: 2.5rem; font-weight: 600; color: #fff; margin-bottom: 2rem; }
+
+        .main h1 span { color: #f4bebe; }
+
+        .activity-list { list-style: none; }
+
+        .activity-item { background: rgba(255, 255, 255, 0.05); border-left: 5px solid #f4bebe; padding: 1.5rem; margin-bottom: 1rem; border-radius: 0 10px 10px 0; transition: 0.3s; }
+
+        .activity-item:hover { background: rgba(255, 255, 255, 0.1); transform: translateX(10px); }
+
+        .activity-item h3 { color: #f4bebe; margin-bottom: 0.5rem; }
+
        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
-            background-color: #442858;
-            color: #fff;
-        }
-
-        header {
-            padding: 1.7rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            max-width: 80%;
-            margin: auto;
-            align-items: center;
-            background-color: transparent;
-        }
-
-        .logo a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: 800;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: .97rem;
-            font-weight: 600;
-            padding: 0.4rem 1rem;
-        }
-
-        nav a.active,
-        nav a:hover {
-            color: #f4bebe;
-            transition: all .3s ease-in-out;
-        }
-
-        section {
-            margin: 2rem 8.5rem;
-        }
-
-        .main {
-            display: flex;
-            flex-direction: column; 
-            margin: 5rem auto;
-        }
-
-        .main h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 2rem;
-        }
-
-        .main h1 span {
-            color: #f4bebe;
-        }
-
-
-        .activity-list {
-            list-style: none;
-        }
-
-        .activity-item {
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 5px solid #f4bebe;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-radius: 0 10px 10px 0;
-            transition: 0.3s;
-        }
-
-        .activity-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(10px);
-        }
-
-        .activity-item h3 {
-            color: #f4bebe;
-            margin-bottom: 0.5rem;
-        }
+        .upload-form { background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 15px; border: 1px solid rgba(244, 190, 190, 0.2); margin-top: 2rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #f4bebe; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; background: #3a224a; border: 1px solid #f4bebe; color: white; border-radius: 5px; }
+        .btn-submit { background: #f4bebe; color: #442858; padding: 10px 25px; border: none; border-radius: 5px; font-weight: 800; cursor: pointer; transition: 0.3s; }
+        .btn-submit:hover { background: white; }
 
         #click { display: none; }
         .menu { display: none; }
@@ -104,10 +49,7 @@
         @media only screen and (max-width:480px) {
             .menu { display: block; font-size: 1.5rem; color: #f4bebe; }
             header { max-width: 100%; }
-            nav {
-                position: absolute; display: grid; top: 75px; text-align: center;
-                background-color: #442858; left: -100%; z-index: 1; width: 100%; padding: 1rem 0;
-            }
+            nav { position: absolute; display: grid; top: 75px; text-align: center; background-color: #442858; left: -100%; z-index: 1; width: 100%; padding: 1rem 0; }
             #click:checked~nav { left: 0%; transition: all 0.3s ease; }
             section { margin: 1rem 1.5rem; }
         }
@@ -116,17 +58,12 @@
 
 <body>
     <header>
-        <div class="logo">
-            <a href="index.html">Student Portfolio</a>
-        </div>
-
+        <div class="logo"><a href="index.html">Student Portfolio</a></div>
         <input type="checkbox" id="click">
-        <label for="click" class="mainicon">
-            <div class="menu"><i class="bi bi-list"></i></div>
-        </label>
-
+        <label for="click" class="mainicon"><div class="menu"><i class="bi bi-list"></i></div></label>
         <nav>
             <a href="index.html">Home</a>
+             <a href="dashboard.html">Dashboard</a>
             <a href="activities.html" class="active">Activities</a>
             <a href="quizzes.html">Quizzes</a>
             <a href="exams.html">Exams</a>
@@ -136,29 +73,34 @@
     <section>
         <div class="main">
             <h1>My <span>Activities</span></h1>
-            
             <div class="activity-list">
-                <div class="activity-item">
-                    <h3>Activity 1</h3>
-                    <p>Created a CSS Image Carousel.</p>
-                </div>
-
-                <div class="activity-item">
-                    <h3>Activity 2</h3>
-                    <p>Created numerous Java sample tests.</p>
-                </div>
-
-                <div class="activity-item">
-                    <h3>Activity 3</h3>
-                    <p>Continuation of the previous sample tests.</p>
-                </div>
+                <div class="activity-item"><h3>Activity 1</h3><p>Created a CSS Image Carousel.</p></div>
+                <div class="activity-item"><h3>Activity 2</h3><p>Created numerous Java sample tests.</p></div>
+                <div class="activity-item"><h3>Activity 3</h3><p>Continuation of the previous sample tests.</p></div>
             </div>
+            <br>
+            <br>
+            <h1>Upload <span>Activities</span></h1>
+            <form class="upload-form">
+                <div class="form-group"> 
+                    <label>Lab Title</label>
+                    <input type="text" placeholder="Enter Lab Title..">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea rows="4" placeholder="Add a Description.."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload Lab File</label>
+                    <input type="file">
+                </div>
+                <div class="form-group">
+                    <label>Upload Image</label>
+                    <input type="file" accept="image/*">
+                </div>
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
         </div>
     </section>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
-    </style>
 </body>
-
 </html>
