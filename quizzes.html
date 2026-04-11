@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Quizzes - Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: 'Poppins', sans-serif; min-height: 100vh; background-color: #442858; color: #fff; }
+
+        header { padding: 1.7rem 1rem; display: flex; justify-content: space-between; max-width: 80%; margin: auto; align-items: center; }
+
+        .logo a { color: #fff; text-decoration: none; font-size: 1.3rem; font-weight: 800; }
+
+        nav a { color: #fff; text-decoration: none; font-size: .97rem; font-weight: 600; padding: 0.4rem 1rem; }
+
+        nav a.active, nav a:hover { color: #f4bebe; transition: all .3s ease-in-out; }
+
+        section { margin: 2rem 8.5rem; }
+
+        .main { display: flex; flex-direction: column; margin: 5rem auto; }
+
+        .main h1 { font-size: 2.5rem; font-weight: 600; color: #fff; margin-bottom: 2rem; }
+
+        .main h1 span { color: #f4bebe; }
+
+        .upload-form { background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 15px; border: 1px solid rgba(244, 190, 190, 0.2); margin-top: 1rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #f4bebe; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; background: #3a224a; border: 1px solid #f4bebe; color: white; border-radius: 5px; }
+        .btn-submit { background: #f4bebe; color: #442858; padding: 10px 25px; border: none; border-radius: 5px; font-weight: 800; cursor: pointer; transition: 0.3s; width: 100%; }
+        .btn-submit:hover { background: white; }
+
+        #click { display: none; }
+        .menu { display: none; }
+
+        @media only screen and (max-width:480px) {
+            .menu { display: block; font-size: 1.5rem; color: #f4bebe; }
+            header { max-width: 100%; }
+            nav { position: absolute; display: grid; top: 75px; text-align: center; background-color: #442858; left: -100%; z-index: 1; width: 100%; padding: 1rem 0; }
+            #click:checked~nav { left: 0%; transition: all 0.3s ease; }
+            section { margin: 1rem 1.5rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo"><a href="index.html">Student Portfolio</a></div>
+        <input type="checkbox" id="click">
+        <label for="click" class="mainicon"><div class="menu"><i class="bi bi-list"></i></div></label>
+        <nav>
+            <a href="index.html">Home</a>
+             <a href="dashboard.html">Dashboard</a>
+            <a href="activities.html">Activities</a>
+            <a href="quizzes.html" class="active">Quizzes</a>
+            <a href="exams.html">Exams</a>
+        </nav>
+    </header>
+
+    <section>
+        <div class="main">
+            <h1>Upload <span>Quizzes</span></h1>
+            
+            <form class="upload-form">
+                <div class="form-group">
+                    <label>Quiz Title</label>
+                    <input type="text" placeholder="Enter Quiz Number..">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea rows="4" placeholder="Add a Description.."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload Quiz File</label>
+                    <input type="file">
+                </div>
+                <div class="form-group">
+                    <label>Upload Image</label>
+                    <input type="file" accept="image/*">
+                </div>
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+    </style>
+</body>
+</html>
