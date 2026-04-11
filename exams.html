@@ -8,116 +8,40 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>Exams - Portfolio</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
-            background-color: #442858;
-            color: #fff;
-        }
+        body { font-family: 'Poppins', sans-serif; min-height: 100vh; background-color: #442858; color: #fff; }
 
-        header {
-            padding: 1.7rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            max-width: 80%;
-            margin: auto;
-            align-items: center;
-            background-color: transparent;
-        }
+        header { padding: 1.7rem 1rem; display: flex; justify-content: space-between; max-width: 80%; margin: auto; align-items: center; }
 
-        .logo a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: 800;
-        }
+        .logo a { color: #fff; text-decoration: none; font-size: 1.3rem; font-weight: 800; }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: .97rem;
-            font-weight: 600;
-            padding: 0.4rem 1rem;
-        }
+        nav a { color: #fff; text-decoration: none; font-size: .97rem; font-weight: 600; padding: 0.4rem 1rem; }
 
-        nav a.active,
-        nav a:hover {
-            color: #f4bebe;
-            transition: all .3s ease-in-out;
-        }
+        nav a.active, nav a:hover { color: #f4bebe; transition: all .3s ease-in-out; }
 
-        section {
-            margin: 2rem 8.5rem;
-        }
+        section { margin: 2rem 8.5rem; }
 
-        .main {
-            display: flex;
-            flex-direction: column;
-            margin: 5rem auto;
-        }
+        .main { display: flex; flex-direction: column; margin: 5rem auto; }
 
-        .main h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
+        .main h1 { font-size: 2.5rem; font-weight: 600; color: #fff; margin-bottom: 2rem; text-align: center; }
 
-        .main h1 span {
-            color: #f4bebe;
-        }
+        .main h1 span { color: #f4bebe; }
 
-        .exam-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        .exam-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto; }
 
-        .exam-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(244, 190, 190, 0.1);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.4s ease;
-        }
+        .exam-card { background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(244, 190, 190, 0.1); padding: 3rem 2rem; border-radius: 20px; text-align: center; transition: all 0.4s ease; }
 
-        .exam-card:hover {
-            border-color: #f4bebe;
-            background: rgba(244, 190, 190, 0.05);
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
+        .exam-card:hover { border-color: #f4bebe; background: rgba(244, 190, 190, 0.05); transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
 
-        .exam-card i {
-            font-size: 4rem;
-            color: #f4bebe;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
+        .exam-card i { font-size: 4rem; color: #f4bebe; margin-bottom: 1.5rem; display: block; }
 
-        .exam-card h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
-        }
-
-        .exam-status {
-            font-size: 0.9rem;
-            color: #f4bebe;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
-        }
+        .upload-form { background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 15px; border: 1px solid rgba(244, 190, 190, 0.2); margin-top: 3rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #f4bebe; }
+        .form-group input { width: 100%; padding: 10px; background: #3a224a; border: 1px solid #f4bebe; color: white; border-radius: 5px; }
+        .btn-submit { background: #f4bebe; color: #442858; padding: 10px 25px; border: none; border-radius: 5px; font-weight: 800; cursor: pointer; transition: 0.3s; width: 100%; }
+        .btn-submit:hover { background: white; }
 
         #click { display: none; }
         .menu { display: none; }
@@ -130,10 +54,7 @@
         @media only screen and (max-width:480px) {
             .menu { display: block; font-size: 1.5rem; color: #f4bebe; }
             header { max-width: 100%; }
-            nav {
-                position: absolute; display: grid; top: 75px; text-align: center;
-                background-color: #442858; left: -100%; z-index: 1; width: 100%; padding: 1rem 0;
-            }
+            nav { position: absolute; display: grid; top: 75px; text-align: center; background-color: #442858; left: -100%; z-index: 1; width: 100%; padding: 1rem 0; }
             #click:checked~nav { left: 0%; transition: all 0.3s ease; }
         }
     </style>
@@ -141,17 +62,12 @@
 
 <body>
     <header>
-        <div class="logo">
-            <a href="index.html">Student Portfolio</a>
-        </div>
-
+        <div class="logo"><a href="index.html">Student Portfolio</a></div>
         <input type="checkbox" id="click">
-        <label for="click" class="mainicon">
-            <div class="menu"><i class="bi bi-list"></i></div>
-        </label>
-
+        <label for="click" class="mainicon"><div class="menu"><i class="bi bi-list"></i></div></label>
         <nav>
             <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
             <a href="activities.html">Activities</a>
             <a href="quizzes.html">Quizzes</a>
             <a href="exams.html" class="active">Exams</a>
@@ -163,26 +79,23 @@
             <h1>Course <span>Exams</span></h1>
             
             <div class="exam-container">
-                <div class="exam-card">
-                    <i class="bi bi-trophy"></i>
-                    <h2>Midterm</h2>
-                    <br>
-                    <div class="exam-status">N/A</div>
-                </div>
-
-                <div class="exam-card">
-                    <i class="bi bi-mortarboard"></i>
-                    <h2>Finals</h2>
-                    <br>
-                    <div class="exam-status">N/A</div>
-                </div>
+                <div class="exam-card"><i class="bi bi-trophy"></i><h2>Midterm</h2><div class="exam-status">N/A</div></div>
+                <div class="exam-card"><i class="bi bi-mortarboard"></i><h2>Finals</h2><div class="exam-status">N/A</div></div>
             </div>
+
+            <h1 style="margin-top: 3rem;">Upload <span>Exams</span></h1>
+            <form class="upload-form">
+                <div class="form-group">
+                    <label>Exam Details</label>
+                    <input type="text" placeholder="Enter Exam Info..">
+                </div>
+                <div class="form-group">
+                    <label>Upload Exam Image</label>
+                    <input type="file" accept="image/*">
+                </div>
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
         </div>
     </section>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
-    </style>
 </body>
-
 </html>
