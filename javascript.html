@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Demo - Student Portfolio Style</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #3d2b56; 
+            color: #ffffff;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .top-container {
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .btn-back {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            text-decoration: none;
+            color: #f0b2b2;
+            border: 1px solid rgba(240, 178, 178, 0.4);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background-color: rgba(255, 255, 255, 0.02);
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #f0b2b2;
+            color: #3d2b56;
+            border-color: #f0b2b2;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+        
+        h1::after {
+            content: ' Dashboard';
+            color: #f0b2b2; 
+            font-weight: 400;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sample {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(240, 178, 178, 0.3); 
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .sample:hover {
+            transform: translateY(-3px);
+            border-color: rgba(240, 178, 178, 0.6);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .sample h2 {
+            font-size: 1.1rem;
+            color: #f0b2b2;
+            margin-bottom: 15px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        input[type="text"], 
+        input[type="number"] {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(240, 178, 178, 0.3);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            border-color: #f0b2b2;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        button {
+            width: 100%;
+            background-color: transparent;
+            border: 1px solid #f0b2b2;
+            color: #f0b2b2;
+            padding: 10px 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: auto;
+            margin-bottom: 8px;
+            transition: all 0.2s ease;
+        }
+
+        button:last-of-type {
+            margin-bottom: 0;
+        }
+
+        button:hover {
+            background-color: #f0b2b2;
+            color: #3d2b56;
+        }
+
+        .output, p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 12px 0;
+            line-height: 1.5;
+        }
+
+        span#countDisplay {
+            color: #f0b2b2;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        #light {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        #numberList {
+            margin-top: 12px;
+            list-style-position: inside;
+            font-size: 0.9rem;
+            color: #3d2b56 !important;
+        }
+        
+        #numberList li {
+            padding: 4px 0;
+        }
+
+        @media (max-width: 600px) {
+            .top-container {
+                flex-direction: column;
+                gap: 15px;
+                margin-bottom: 25px;
+            }
+            .btn-back {
+                position: relative;
+                transform: none;
+                left: unset;
+                top: unset;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-container">
+        <a href="activities.html" class="btn-back">← Back to Activities</a>
+        <h1>JavaScript</h1>
+    </div>
+
+    <div class="dashboard-grid">
+
+        <div class="sample">
+            <h2>Sample 1: Alert Button (Inline JavaScript)</h2>
+            <p>Triggers a browser popup event.</p>
+            <button onclick="alert('Hello')">Click Me for Alert</button>
+        </div>
+
+        <div class="sample">
+            <h2>Sample 2: Function Button</h2>
+            <div class="output" id="output2">No function message generated yet.</div>
+            <button onclick="sayHello()">Click Me for Function</button>
+        </div>
+
+        <div class="sample">
+            <h2>Sample 3: Change Text Button</h2>
+            <p id="demo3">This baseline string asset will dynamically change values.</p>
+            <button onclick="changeText()">Click to Change Text</button>
+        </div>
+
+        <div class="sample">
+            <h2>Sample 4: Counter Button (let and increment)</h2>
+            <p>You clicked: <span id="countDisplay">0</span> times</p>
+            <button onclick="incrementCounter()">Click to Count</button>
+        </div>
+
+        <div class="sample">
+            <h2>Sample 5: Input Button</h2>
+            <input type="text" id="nameInput" placeholder="Please enter your name">
+            <div class="output" id="greeting">Waiting for user execution...</div>
+            <button onclick="greetUser()">Greet Me</button>
+        </div>
+
+        <div class="sample">
+            <h2>Sample 6: If Statement Button</h2>
+            <input type="number" id="ageInput" placeholder="Please enter your age">
+            <div class="output" id="ageResult">Verification results will appear here.</div>
+            <button onclick="checkAge()">Check Age</button>
+        </div>
+
+        <div class="sample">
+            <h2>Sample 7: Multiple Parameters (Add Numbers)</h2>
+            <input type="number" id="num1" placeholder="Enter First Number">
+            <input type="number" id="num2" placeholder="Enter Second Number">
+            <div class="output" id="sumResult">Total Result: 0</div>
+            <button onclick="addNumbers()">Add Numbers</button>
+        </div>
+
+        <div class="sample">
+            <h2>Sample 8: Toggle Button (Boolean)</h2>
+            <div id="light" style="background-color: #8c689E; padding: 15px; text-align: center; border-radius: 6px; margin-bottom: 12px; color: white;">
+                It is NIGHT TIME
+            </div>
+            <button onclick="toggleLight()">Toggle Light</button>
+        </div>
+
+        <div class="sample">
+            <h2>Sample 9: Loop Button</h2>
+            <button onclick="countToFive()">Count to Five</button>
+            <button onclick="clearList()">Clear List</button>
+            <ul id="numberList" style="background-color: #f0b2b2; padding: 12px; border-radius: 6px;"></ul>
+        </div>
+
+    </div>
+
+    <script>
+        function sayHello() {
+            let message = "Hello from me and the function!";
+            alert(message);
+            document.getElementById("output2").innerHTML = message;
+            console.log("Sample 2: The button was clicked!");
+        }
+
+        function changeText() {
+            document.getElementById("demo3").innerHTML = "Text changes! Button was clicked at " + new Date().toLocaleTimeString();
+            console.log("Sample 3: Text changed successfully");
+        }
+
+        let count = 0;
+        function incrementCounter() {
+            count++;
+            document.getElementById("countDisplay").innerHTML = count;
+            console.log("Sample 4: Count = " + count);
+        }
+
+        function greetUser() {
+            let name = document.getElementById("nameInput").value;
+            if (name === "") {
+                name = "Guest";
+            }
+            let message = "Hello, " + name + "!";
+            document.getElementById("greeting").innerHTML = message;
+            console.log("Sample 5: " + message);
+        }
+
+        function checkAge () {
+            let age = document.getElementById("ageInput").value;
+            let result;
+
+            if (age >= 18) {
+                result = "You are legally an adult! (Age: " + age + ")";
+                console.log("Sample 6: Adult - " + age);
+            } else {
+                result = "You are still a minor! (Age: " + age + ")";
+                console.log("Sample 6: Minor - " + age);
+            }
+            document.getElementById("ageResult").innerHTML = result;
+        }
+
+        function addNumbers() {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+            let result = calculateSum(num1, num2);
+            document.getElementById("sumResult").innerHTML = "Result: " + num1 + " + " + num2  + " = " + result;
+        }
+
+        function calculateSum (a, b) {
+            return a + b;
+        }
+
+        let isLightOn = false;
+        function toggleLight() {
+            isLightOn = !isLightOn;
+            let light = document.getElementById("light");
+
+            if (isLightOn) {
+                light.innerHTML = "It is DAY TIME";
+                light.style.backgroundColor = "#F1B04C";
+                light.style.color = "black";
+                console.log("Sample 8: Currently DAY TIME");
+            } else {
+                light.innerHTML = "It is NIGHT TIME";
+                light.style.backgroundColor = "#8c689E";
+                light.style.color = "white";
+                console.log("Sample 8: Currently NIGHT TIME");
+            }
+        }
+
+        function countToFive() {
+            let list = document.getElementById("numberList");
+            list.innerHTML = "";
+
+            for (let i = 1; i <= 5; i++) {
+                list.innerHTML += "<li>Number: " + i + "</li>";
+                console.log("Sample 9: Count: " + i);
+            }
+        }
+
+        function clearList() {
+            document.getElementById("numberList").innerHTML = "";
+            console.log("Sample 9: Your List Has Been Cleared");
+        }
+    </script>
+</body>
+</html>
