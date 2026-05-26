@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple carousel · example</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #442858; 
+            font-family: 'Poppins', Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        .card {
+            max-width: 700px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(244, 190, 190, 0.2);
+            border-radius: 2rem;
+            padding: 2rem 1.5rem 2.5rem 1.5rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 1.8rem;
+        }
+
+        .btn-back {
+            position: absolute;
+            left: 0;
+            text-decoration: none;
+            color: #f4bebe;
+            border: 1px solid rgba(244, 190, 190, 0.4);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .btn-back:hover {
+            background: #f4bebe;
+            color: #442858;
+            border-color: #f4bebe;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+        }
+
+        h2 {
+            color: #f4bebe;
+            font-weight: 500;
+            font-size: 2rem;
+        }
+
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.2rem;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 0.5rem 0.2rem 1.5rem 0.2rem;
+            scrollbar-width: thin;
+            scrollbar-color: #f4bebe rgba(255, 255, 255, 0.1);
+        }
+
+        .carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+        .carousel::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        .carousel::-webkit-scrollbar-thumb {
+            background: #f4bebe;
+            border-radius: 20px;
+        }
+
+        .carousel-item {
+            scroll-snap-align: start;
+            flex: 0 0 auto;
+            width: 220px;
+            height: 150px;
+            background: #3a224a;
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border: 3px solid rgba(244, 190, 190, 0.4);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1.4rem;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            background: transparent;
+            color: #f4bebe;
+            border: 1px solid #f4bebe;
+            padding: 6px 14px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 20px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .nav-btn:hover {
+            background: #f4bebe;
+            color: #442858;
+            cursor: pointer;
+        }
+
+        .note {
+            margin-top: 1.8rem;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+            border-left: 4px solid #f4bebe;
+            padding: 0.8rem 1.2rem;
+            border-radius: 0 3rem 3rem 0;
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        @media (max-width: 520px) {
+            .card-header {
+                flex-direction: column-reverse;
+                gap: 15px;
+            }
+            .btn-back {
+                position: relative;
+                left: unset;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        
+        <div class="card-header">
+            <a href="activities.html" class="btn-back">← Back to Activities</a>
+            <h2>Flower Fields</h2>
+        </div>
+
+        <div class="carousel">
+            <div class="carousel-item" id="img1"><img src="bluefields.jpg"></div>
+            <div class="carousel-item" id="img2"><img src="daisies.jpg"></div>
+            <div class="carousel-item" id="img3"><img src="dandelions.jpg"></div>
+            <div class="carousel-item" id="img4"><img src="pinkfield.jpg"></div>
+            <div class="carousel-item" id="img5"><img src="purple.jpg"></div>
+            <div class="carousel-item" id="img6"><img src="sunflowers.jpg"></div>
+        </div>
+
+        <div class="carousel-nav">
+            <a href="#img1" class="nav-btn">one</a>
+            <a href="#img2" class="nav-btn">two</a>
+            <a href="#img3" class="nav-btn">three</a>
+            <a href="#img4" class="nav-btn">four</a>
+            <a href="#img5" class="nav-btn">five</a>
+            <a href="#img6" class="nav-btn">six</a>
+        </div>
+
+        <div class="note">
+            ⬅️ swipe / drag →  ·  snap enabled  ·  pure CSS Quick Links
+        </div>
+
+        <p style="margin-top: 1.5rem; color:#fff; background:rgba(255, 255, 255, 0.05); padding:0.6rem; border-radius:3rem; font-size: 0.9rem;">
+            ✔️ <code>scroll-behavior: smooth</code> anchor jumps activated!
+        </p>
+    </div>
+</body>
+</html>
