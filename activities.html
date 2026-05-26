@@ -35,6 +35,13 @@
 
         .activity-item h3 { color: #f4bebe; margin-bottom: 0.5rem; }
 
+        .upload-form { background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 15px; border: 1px solid rgba(244, 190, 190, 0.2); margin-top: 2rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #f4bebe; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; background: #3a224a; border: 1px solid #f4bebe; color: white; border-radius: 5px; }
+        .btn-submit { background: #f4bebe; color: #442858; padding: 10px 25px; border: none; border-radius: 5px; font-weight: 800; cursor: pointer; transition: 0.3s; }
+        .btn-submit:hover { background: white; }
+
         #click { display: none; }
         .menu { display: none; }
 
@@ -55,7 +62,7 @@
         <label for="click" class="mainicon"><div class="menu"><i class="bi bi-list"></i></div></label>
         <nav>
             <a href="index.html">Home</a>
-            <a href="dashboard.html">Dashboard</a>
+             <a href="dashboard.html">Dashboard</a>
             <a href="activities.html" class="active">Activities</a>
             <a href="quizzes.html">Quizzes</a>
             <a href="exams.html">Exams</a>
@@ -72,9 +79,8 @@
                         <h3>Activity 1</h3>
                         <p>Created a CSS Image Carousel.</p>
                     </div>
-                </a>
-
-                <a href="registration.html" style="text-decoration: none; color: inherit; display: block;">
+                </a> 
+                <a href="regform.html" style="text-decoration: none; color: inherit; display: block;">
                     <div class="activity-item">
                         <h3>Activity 2</h3>
                         <p>Created a Registration Form.</p>
@@ -89,6 +95,29 @@
                 </a>
 
             </div>
+
+            <br>
+            <br>
+            <h1>Upload <span>Activities</span></h1>
+            <form class="upload-form">
+                <div class="form-group"> 
+                    <label>Lab Title</label>
+                    <input type="text" placeholder="Enter Lab Title..">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea rows="4" placeholder="Add a Description.."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload Lab File</label>
+                    <input type="file">
+                </div>
+                <div class="form-group">
+                    <label>Upload Image</label>
+                    <input type="file" accept="image/*">
+                </div>
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
         </div>
     </section>
 </body>
